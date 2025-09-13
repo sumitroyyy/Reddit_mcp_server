@@ -4,37 +4,32 @@ A comprehensive Model Context Protocol (MCP) server that provides AI assistants 
 
 ## Features
 
-### 🛠️ Available Tools
 
-- **`get_subreddit_posts`** - Browse posts from any subreddit with flexible sorting options
-- **`get_post_details`** - Get detailed information about specific posts
-- **`get_post_comments`** - Read comments from any post with various sorting methods
-- **`search_reddit`** - Search across Reddit or within specific subreddits
-- **`get_user_profile`** - View public user profiles and recent activity
-- **`get_subreddit_info`** - Get subreddit details, rules, and moderation info
+# Reddit CLI Server
 
-### ✨ Key Benefits
+Interact with Reddit from your terminal: browse posts, list flairs, and post to subreddits (with flair support).
 
-- **Read-only access** - Safe browsing without posting capabilities
-- **Comprehensive error handling** - Graceful handling of API limits and errors
-- **Flexible parameters** - Customizable limits, sorting, and filtering options
-- **Rich formatting** - Well-structured responses with all relevant metadata
-- **Rate limit compliant** - Respects Reddit's API guidelines
+## Features
+
+- **Get top posts from any subreddit**
+- **List available flairs for any subreddit**
+- **Post to any subreddit you have permission for (with or without flair)**
+- **Comprehensive error handling**
 
 ## Installation
 
 ### Prerequisites
 
 1. **Reddit API Credentials**
-   - Go to [Reddit App Preferences](https://www.reddit.com/prefs/apps)
-   - Click "Create another app..."
-   - Choose "script" as the app type
-   - Set redirect URI to `http://localhost:8080`
-   - Save your Client ID and Client Secret
+  - Go to [Reddit App Preferences](https://www.reddit.com/prefs/apps)
+  - Click "Create another app..."
+  - Choose "script" as the app type
+  - Set redirect URI to `http://localhost:8080`
+  - Save your Client ID and Client Secret
 
 2. **Python Environment**
-   - Python 3.8 or higher
-   - pip package manager
+  - Python 3.8 or higher
+  - pip package manager
 
 ### Setup Steps
 
@@ -56,15 +51,9 @@ cp .env.example .env
 REDDIT_CLIENT_ID=your_reddit_client_id_here
 REDDIT_CLIENT_SECRET=your_reddit_client_secret_here
 REDDIT_USER_AGENT=RedditMCPServer/1.0.0
+REDDIT_USERNAME=your_reddit_username_here
+REDDIT_PASSWORD=your_reddit_password_here
 ```
-
-### Install via pip (Coming Soon)
-```bash
-pip install reddit-mcp-server
-```
-
-## Usage
-
 ### With Claude Desktop
 
 Add to your Claude Desktop configuration file:
@@ -74,42 +63,41 @@ Add to your Claude Desktop configuration file:
 - Windows: `%APPDATA%/Claude/claude_desktop_config.json`
 
 **Configuration:**
-```json
-{
-  "mcpServers": {
-    "reddit": {
-      "command": "python",
-      "args": ["/path/to/reddit-mcp-server/server.py"],
-      "env": {
-        "REDDIT_CLIENT_ID": "your_client_id",
-        "REDDIT_CLIENT_SECRET": "your_client_secret",
-        "REDDIT_USER_AGENT": "RedditMCPServer/1.0.0"
-      }
-    }
-  }
-}
-```
 
-### Standalone Usage
+## Usage
 
+Start the CLI:
 ```bash
-python server.py
+python simple_server.py
 ```
 
-## Tool Examples
+### Example Commands
 
-### Get Subreddit Posts
-Ask Claude: *"Get the top 10 hot posts from r/python"*
+- **Get top posts from a subreddit:**
+  ```
+  get me top 5 post from python
+  ```
 
-This uses: `get_subreddit_posts(subreddit="python", sort="hot", limit=10)`
+- **List available flairs for a subreddit:**
+  ```
+  list flairs for TheFoundersLog
+  ```
 
-### Search Reddit
-Ask Claude: *"Search for posts about machine learning in r/MachineLearning from the past week"*
+- **Post to a subreddit with flair:**
+  ```
+  post my first post on reddit "This is a test post with flair in my own subreddit. Excited to start TheFoundersLog!" to TheFoundersLog with flair <flair_id>
+  ```
+  Replace `<flair_id>` with the actual ID from the previous command.
 
-This uses: `search_reddit(query="machine learning", subreddit="MachineLearning", time_filter="week")`
+- **Post to a subreddit without flair:**
+  ```
+  post my first post on reddit "This is a test post without flair." to TheFoundersLog
+  ```
 
-### Get Post Details
-Ask Claude: *"Get details and comments for this Reddit post: [post URL]"*
+**Note:**
+- Posting requires your Reddit username and password in the `.env` file.
+- Some subreddits restrict posting/flair usage for new accounts or bots.
+- For best results, use your own subreddit for testing.
 
 This uses: `get_post_details(post_id="url", include_comments=true)`
 
