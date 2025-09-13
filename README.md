@@ -1,6 +1,6 @@
 # Reddit MCP Server
 
-A comprehensive Model Context Protocol (MCP) server that provides AI assistants with read-only access to Reddit's API. This server enables Claude and other MCP-compatible AI assistants to browse subreddits, read posts and comments, search Reddit, and get user/subreddit information.
+A comprehensive Model Context Protocol (MCP) server that provides AI assistants to access to Reddit's API. This server enables Claude and other MCP-compatible AI assistants to browse subreddits, read posts and comments, search Reddit, and get user/subreddit information.
 
 ## Features
 
