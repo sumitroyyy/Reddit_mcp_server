@@ -174,7 +174,6 @@ All errors are returned as descriptive text messages to help users understand wh
 
 ## Security & Privacy
 
-- **Read-only access**: Cannot post, comment, or modify any Reddit content
 - **No authentication storage**: Uses app-only authentication (no user tokens)
 - **Privacy-focused**: Only accesses publicly available Reddit data
 - **No data persistence**: Does not store or cache any Reddit data locally
