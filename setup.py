@@ -10,7 +10,7 @@ setup(
     name="reddit-mcp-server",
     version="1.0.0",
     author="Sumit Roy",
-    author_email="devopsroyy@gmail.com",
+    author_email="",
     description="A comprehensive MCP server for Reddit API access",
     long_description=long_description,
     long_description_content_type="text/markdown",
