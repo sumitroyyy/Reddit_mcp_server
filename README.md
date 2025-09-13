@@ -80,14 +80,14 @@ python simple_server.py
 
 - **List available flairs for a subreddit:**
   ```
-  list flairs for TheFoundersLog
+  list flairs for subreddit
   ```
 
 - **Post to a subreddit with flair:**
   ```
-  post my first post on reddit "This is a test post with flair in my own subreddit. Excited to start TheFoundersLog!" to TheFoundersLog with flair <flair_id>
+  post my first post on reddit "This is a test post with flair in my own subreddit. Excited to start TheFoundersLog!" to TheFoundersLog 
   ```
-  Replace `<flair_id>` with the actual ID from the previous command.
+  Replace `<flair_id>` with the actual ID from the previous command
 
 - **Post to a subreddit without flair:**
   ```
